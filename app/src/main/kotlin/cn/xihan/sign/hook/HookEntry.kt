@@ -33,12 +33,14 @@ class HookEntry : IYukiHookXposedInit {
 
     override fun onHook() = YukiHookAPI.encase {
 
+        // 获取包名集合
         val packageNameList by lazy {
             prefs.getStringSet(
                 "packageNameList", defaultScopeSet
             )
         }
 
+        // 获取包名集合
         val packageNames by lazy {
             prefs.getStringSet("packageNames", emptySet())
         }

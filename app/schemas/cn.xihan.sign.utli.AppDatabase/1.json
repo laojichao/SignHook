@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "5b888686bd6d3cf443ca072b04e4e4b3",
+    "entities": [
+      {
+        "tableName": "ApkSignature",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apkName` TEXT NOT NULL, `packageName` TEXT NOT NULL, `originalSignature` TEXT NOT NULL, `forgedSignature` TEXT NOT NULL, `isForged` INTEGER NOT NULL, PRIMARY KEY(`packageName`))",
+        "fields": [
+          {
+            "fieldPath": "apkName",
+            "columnName": "apkName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "packageName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalSignature",
+            "columnName": "originalSignature",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "forgedSignature",
+            "columnName": "forgedSignature",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isForged",
+            "columnName": "isForged",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "packageName"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5b888686bd6d3cf443ca072b04e4e4b3')"
+    ]
+  }
+}
